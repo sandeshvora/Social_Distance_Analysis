@@ -1,16 +1,13 @@
 from utilities.human_detector import load_inference_graph
 from utilities.human_detector import detect_objects
-
-import os
 from datetime import datetime
-import cv2
+import cv2,os
 from utilities import draw_bbox_cv2
 import sys
 from utilities import distance
 
 # Default params
 web_cam = False
-
 path_vid = 'test/football.mp4'
 im_height, im_width = (None, None)
 score_thresh = 0.2
@@ -59,7 +56,7 @@ def run_detections(web_cam, path_vid, im_height, im_width, score_thresh, save_vi
             except:
                 print("Error converting to RGB")
 
-            print(" ---------------Running Detections--------------- ")
+            print(" ------------Running Detections------------ ")
 
             # Run image through tensorflow graph
             boxes, scores, classes = detect_objects(frame, detection_graph, sess)
